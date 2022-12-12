@@ -1,0 +1,38 @@
+// Write your code here
+import java.util.Scanner;
+
+public class MultiplicationByAdding {
+
+    // multiply function definition
+    public static int multiply(int no1, int no2) {
+
+        // base case
+        if(no2==1){
+            return no1;
+        }
+
+        // recursive case
+        else{
+
+            // making recursive call to multiply
+            return no1+multiply(no1,no2-1);
+        }
+
+    }
+
+    // main method definition
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+
+        // reading first integer from user
+        System.out.print("Enter value for no1: ");
+        int no1 = scan.nextInt();
+
+        // reading second integer from user
+        System.out.print("Enter value for no2: ");
+        int no2 = scan.nextInt();
+
+        // printing the result
+        System.out.println(multiply(no1,no2));
+    }
+}
