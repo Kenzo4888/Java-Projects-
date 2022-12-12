@@ -1,0 +1,26 @@
+
+import java.util.Scanner;
+
+public class AddingRecursively2
+{
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int a,b;
+        System.out.print("Enter a number >> ");
+        a = in.nextInt();
+        System.out.print("Enter another number that is greater than first number >> ");
+        b = in.nextInt();
+
+        if(a>b)
+            System.out.printf("The sum of all the numbers between %d and %d is %d\n", b,a,sum(b, a));
+        else
+            System.out.printf("The sum of all the numbers between %d and %d is %d\n", a,b,sum(a, b));
+
+    }
+
+    public static int sum(int a,int b) {
+        if(a==b)
+            return a;
+        return a+sum(a+1,b);
+    }
+}
