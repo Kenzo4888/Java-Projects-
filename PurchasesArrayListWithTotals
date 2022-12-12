@@ -1,0 +1,91 @@
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Scanner;
+
+public class PurchasesArrayListWithTotals{
+
+    public static void main (String[] args) {
+
+        ArrayList<Purchase> items = new ArrayList<Purchase>();
+        updateItems(items);
+        Collections.sort(items);
+        System.out.println();
+        displayInfo(items);
+
+
+    }
+
+    public static void updateItems(ArrayList<Purchase> items) {
+
+        Scanner input = new Scanner(System.in);
+        String category;
+        double cost;
+
+        System.out.print("Enter category for purchase or ZZZ to quit >> ");
+        category = input.nextLine();
+
+        while(!category.equals("ZZZ")) {
+
+            System.out.print("Enter amount spent >> ");
+            cost = input.nextDouble();
+            input.nextLine();
+
+            items.add(new Purchase(category,cost));
+
+            System.out.print("Enter category for purchase or ZZZ to quit >> ");
+            category = input.nextLine();
+
+        }
+
+    }
+public static void displayInfo(ArrayList<Purchase> items) {
+
+        double totalCost = 0;
+        String tempCategory = items.get(0).getCategory();
+
+        for(int index = 0; index < items.size(); index++) {
+
+
+            if(items.get(index).getCategory().equals(tempCategory)) {
+
+                totalCost += items.get(index).getPrice();
+                tempCategory = items.get(index).getCategory();
+
+            }
+
+            if (!items.get(index).getCategory().equals(tempCategory)) {
+
+                totalCost = Math.round(totalCost * 100.0) / 100.0;
+
+                System.out.println("    Total for " + items.get(index-1).getCategory() +
+                        ": " + totalCost);
+                totalCost = 0;
+
+                totalCost += items.get(index).getPrice();
+                tempCategory = items.get(index).getCategory();
+            }
+
+            if(index == items.size()-1) {
+
+                totalCost = Math.round(totalCost * 100.0) / 100.0;
+
+                System.out.println(items.get(index).getCategory() + " " +
+                        items.get(index).getPrice());
+
+                System.out.println("    Total for " + items.get(index).getCategory() +
+                        ": " + totalCost);
+
+
+            }
+
+            if (index != items.size()-1)
+                System.out.println(items.get(index).getCategory() + " " +
+                    items.get(index).getPrice());
+
+        }
+
+    }
+
+}
+
+        
