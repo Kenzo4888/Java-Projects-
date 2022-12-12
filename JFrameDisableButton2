@@ -1,0 +1,44 @@
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+
+
+public class JFrameDisableButton2 extends JFrame implements ActionListener
+{
+    final int FRAME_WIDTH = 300;
+    final int FRAME_HEIGHT = 300;
+    int count = 1;
+    
+    JButton button = new JButton("Press Me");
+    JLabel label = new JLabel("That's enough!");    
+    public static void main(String[] args)
+    {
+    JFrameDisableButton2 frame = new JFrameDisableButton2();
+    frame.setSize(200, 200);
+    frame.setVisible(true);
+}
+    public JFrameDisableButton2()
+    {
+        super("");
+        setSize(FRAME_HEIGHT, FRAME_WIDTH);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        
+        setLayout(new FlowLayout());
+        add (button);
+        add (label);
+        label.setVisible(false);
+        button.addActionListener(this);
+    }
+    public void actionPerformed(ActionEvent e)
+    {
+        if(count == 8){
+            button.setEnabled(false);
+            setLayout(new FlowLayout());
+            label.setVisible(true);
+            setVisible(true);
+        }
+        else{
+            count++;
+        }
+    }
+}// Write your code here
