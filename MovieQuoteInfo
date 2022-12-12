@@ -1,0 +1,13 @@
+public class MovieQuoteInfo {
+
+    // when this program is run, main method is executed first
+    public static void main(String[] args) {
+        // print the strings on separate lines using println method call
+        System.out.println("Rosebud,");
+        System.out.println("said by Charles Foster Kane");
+        System.out.println("in the movie Citizen Kane");
+        System.out.println("in 1941.");
+    }
+}
+ 
+
