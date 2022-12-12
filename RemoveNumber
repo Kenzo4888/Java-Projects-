@@ -1,0 +1,41 @@
+import java.util.*;
+
+public class RemoveNumber {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        int num;
+        String val;
+        ArrayList<Integer> list = new ArrayList<Integer>();
+        System.out.println("Enter intergers or ZZZ to quit");
+        while (true) {
+            val = input.next();
+            if (val.equals("ZZZ")) {
+                break;
+            }
+            num = Integer.parseInt(val);
+            list.add(num);
+        } 
+        Iterator<Integer> itez = list.iterator();
+
+    System.out.println("Number:");
+    while (itez.hasNext()){
+        System.out.print(itez.next());
+        System.out.print(" ");
+    }
+    System.out.println(" ");
+    System.out.println("Enter number to Eliminate>>");
+    num = input.nextInt();
+    itez = list.iterator();
+    while (itez.hasNext()){
+        if (itez.next() == num) {
+            itez.remove();
+        }
+    }
+    itez = list.iterator();
+    System.out.println("Number:");
+    while (itez.hasNext()) {
+        System.out.print(itez.next());
+        System.out.print(" ");
+    }
+    }
+}
