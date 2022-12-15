@@ -1,0 +1,34 @@
+import javax.swing.*;
+ 
+ 
+public class TryToParseDouble
+{
+    public static void main(String[] args) 
+    {
+        double inputDouble = 0.0;
+        
+        while (inputDouble != 99.0)
+        {
+           try 
+           {
+               String inputString = JOptionPane.showInputDialog(null, 
+                   "Please enter a floating point number\nTo quit enter 99");
+               inputDouble = Double.parseDouble(inputString);
+           }
+           catch(NumberFormatException exception)
+           {
+                inputDouble = 0;
+                JOptionPane.showMessageDialog(null, "Error!\nYou must enter a number");
+           }
+           if (inputDouble == 99.0)
+                JOptionPane.showMessageDialog(null, "Goodbye!");
+           else 
+               JOptionPane.showMessageDialog(null, "You had entered " + inputDouble);
+        } 
+    }
+}
+
+
+
+
+
